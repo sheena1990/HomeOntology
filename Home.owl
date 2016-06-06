@@ -1,0 +1,452 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/sheen/ontologies/home"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/sheen/ontologies/home">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A home ontology describing the world around us.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Appliances"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Architect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bedroom"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Builder"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dining_Room"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dining_Table"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dishwasher"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Family"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Furniture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Home"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Home_Theatre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Interior_Designer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kitchen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lamp"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Living_Room"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Room"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Salaried_Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sofa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#king_size_bed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#queen_size_bed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#twin_size_bed"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#builds"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#consistsOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#designs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#designsInterior"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#designsStructure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAppliance"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFurniture"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#livesIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#occupiedBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Chargeable_fees"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Skill_Set"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sheena"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Architect"/>
+        <Class IRI="#Salaried_Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Architect"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#designsStructure"/>
+            <Class IRI="#Home"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bed"/>
+        <Class IRI="#Furniture"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bedroom"/>
+        <Class IRI="#Room"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bedroom"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasFurniture"/>
+            <ObjectUnionOf>
+                <Class IRI="#king_size_bed"/>
+                <Class IRI="#queen_size_bed"/>
+                <Class IRI="#twin_size_bed"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bedroom"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#hasFurniture"/>
+            <Class IRI="#Bed"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bedroom"/>
+        <ObjectMaxCardinality cardinality="3">
+            <ObjectProperty IRI="#hasAppliance"/>
+            <Class IRI="#Lamp"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Builder"/>
+        <Class IRI="#Salaried_Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Builder"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#builds"/>
+            <Class IRI="#Home"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dining_Room"/>
+        <Class IRI="#Room"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dining_Room"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasFurniture"/>
+            <Class IRI="#Dining_Table"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dining_Table"/>
+        <Class IRI="#Furniture"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dishwasher"/>
+        <Class IRI="#Appliances"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Family"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#livesIn"/>
+            <Class IRI="#Home"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Home"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#occupiedBy"/>
+            <Class IRI="#Person"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Home"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#consistsOf"/>
+            <Class IRI="#Room"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Home_Theatre"/>
+        <Class IRI="#Appliances"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Interior_Designer"/>
+        <Class IRI="#Salaried_Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Interior_Designer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#designsInterior"/>
+            <Class IRI="#Room"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kitchen"/>
+        <Class IRI="#Room"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kitchen"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasAppliance"/>
+            <Class IRI="#Dishwasher"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lamp"/>
+        <Class IRI="#Appliances"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Living_Room"/>
+        <Class IRI="#Room"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Living_Room"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasAppliance"/>
+            <Class IRI="#Home_Theatre"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Living_Room"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasFurniture"/>
+            <Class IRI="#Sofa"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#livesIn"/>
+            <Class IRI="#Home"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Salaried_Person"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sofa"/>
+        <Class IRI="#Furniture"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#king_size_bed"/>
+        <Class IRI="#Bed"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#queen_size_bed"/>
+        <Class IRI="#Bed"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#twin_size_bed"/>
+        <Class IRI="#Bed"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#king_size_bed"/>
+        <Class IRI="#queen_size_bed"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#king_size_bed"/>
+        <Class IRI="#twin_size_bed"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#queen_size_bed"/>
+        <Class IRI="#twin_size_bed"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Interior_Designer"/>
+        <NamedIndividual IRI="#Sheena"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Chargeable_fees"/>
+        <NamedIndividual IRI="#Sheena"/>
+        <Literal datatypeIRI="&xsd;integer">500</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Name"/>
+        <NamedIndividual IRI="#Sheena"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Sheena Aggarwal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Skill_Set"/>
+        <NamedIndividual IRI="#Sheena"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Master&apos;s in Interior Decoration</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#designsInterior"/>
+        <ObjectProperty IRI="#designs"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#designsStructure"/>
+        <ObjectProperty IRI="#designs"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#occupiedBy"/>
+        <ObjectProperty IRI="#livesIn"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#builds"/>
+        <Class IRI="#Builder"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#consistsOf"/>
+        <Class IRI="#Home"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#designs"/>
+        <Class IRI="#Salaried_Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#designsInterior"/>
+        <Class IRI="#Interior_Designer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#designsStructure"/>
+        <Class IRI="#Architect"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAppliance"/>
+        <Class IRI="#Room"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFurniture"/>
+        <Class IRI="#Room"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#livesIn"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#occupiedBy"/>
+        <Class IRI="#Home"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#builds"/>
+        <Class IRI="#Home"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#consistsOf"/>
+        <Class IRI="#Room"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#designsInterior"/>
+        <Class IRI="#Room"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#designsStructure"/>
+        <Class IRI="#Home"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAppliance"/>
+        <Class IRI="#Appliances"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFurniture"/>
+        <Class IRI="#Furniture"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#livesIn"/>
+        <Class IRI="#Home"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#occupiedBy"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#Chargeable_fees"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#Name"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Chargeable_fees"/>
+        <Class IRI="#Salaried_Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Name"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Skill_Set"/>
+        <Class IRI="#Salaried_Person"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#Chargeable_fees"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Skill_Set"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
